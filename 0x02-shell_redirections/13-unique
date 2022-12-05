@@ -1,2 +1,2 @@
 #!/bin/bashu
-cat | sort -u
+cat . | sort -u
