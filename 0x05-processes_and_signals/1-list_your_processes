@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Must show all processes, for all users, including those which might have a TTY
+# A Bash script that displays a list of currently running processes
 # Display in a user-oriented format
 # Show process hierarchy
 
