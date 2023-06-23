@@ -1,4 +1,5 @@
-# To create a Puppet manifest that kills a process named "killmenow" using the exec resource and pkill,
+# To create a Puppet manifest that kills a process named\
+# "killmenow" using the exec resource and pkill,
 
 exec { 'killmenow':
   command     => 'pkill -f killmenow',
