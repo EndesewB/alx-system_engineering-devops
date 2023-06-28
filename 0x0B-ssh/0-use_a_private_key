@@ -1,3 +1,7 @@
 #!/usr/bin/env bash
 # a script that connects the server using SSH and the private key
+<<<<<<< HEAD
 ssh -i ~/.ssh/school ubuntu@100.25.15.57
+=======
+ssh -i ~/.ssh/school ubuntu@54.209.80.28
+>>>>>>> cd72d49ae2eaa684ea6e71bff1198cb66c567406
