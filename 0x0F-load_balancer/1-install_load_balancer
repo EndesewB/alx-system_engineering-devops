@@ -12,7 +12,7 @@ server_config=\
 name = Endesew
 server = 210747-web-02
 "
-echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
+echo "$server_config" | sudo tee -a /etc/nginx/nginx.conf
 
 # enable haproxy to be started by init script
 
