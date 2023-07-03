@@ -4,19 +4,11 @@
 # Distribute requests using a roundrobin algorithm
 # Install and configure HAproxy on my lb-01 server.
 sudo apt-get -y update
-apt-get -y install haproxy
-
-# edit config file
-server_config=\
+sudo apt-get -y install haproxy=1.6.\*
 "
 name = Endesew
 server = 210747-web-02
-"
-echo "$server_config" | sudo tee -a /etc/nginx/nginx.conf
+" >> /etc/haproxy/haproxy.cfg
 
-# enable haproxy to be started by init script
-
-echo "ENABLED=1" | sudo tee -a /etc/default/haproxy
-
-# Restart Nginx to apply the new configuration
-sudo systemctl restart nginx
+# Restart HAproxy service
+service haproxy restart
