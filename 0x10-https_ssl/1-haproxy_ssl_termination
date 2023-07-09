@@ -40,7 +40,7 @@ frontend  endesewb-frontend-http
         default_backend endesewb-backend
 
 frontend endesewb-frontend-https
-	bind *:443 ssl crt /etc/haproxy/certs/www.endexb.tech
+	bind *:443 ssl crt /etc/haproxy/certs/www.endexb.tech.pem
 	http-request set-header X-Forwarded-Proto https
 	default_backend endesewb-backend
 
