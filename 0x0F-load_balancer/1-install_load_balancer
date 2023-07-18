@@ -16,8 +16,8 @@ frontend EndesewB-frontend
         default_backend EndesewB-backend
 backend EndesewB-backend
         balance roundrobin
-        server 210747-web-01 100.25.15.57:80 check
-        server 210747-web-02 54.90.37.245:80 check
+        server 210747-web-01 52.87.211.176:80 check
+        server 210747-web-02 52.86.253.217:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
