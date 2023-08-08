@@ -1,35 +1,27 @@
-#!usr/bin/python3
+#!/usr/bin/python3
 """
-module to count number of subscribers
+number of subscribers for a given subreddit
 """
-import requests
+
+from requests import get
 
 
 def number_of_subscribers(subreddit):
-    user_agent = "MyRedditClient/1.0"
-
     """
-    URL of the Reddit API endpoint for the subreddit's about page
+    function that queries the Reddit API and returns the number of subscribers
+    (not active users, total subscribers) for a given subreddit.
     """
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
 
-    headers = {
-        "User-Agent": user_agent
-    }
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
+
+    user_agent = {'User-agent': 'Google Chrome Version 81.0.4044.129'}
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    response = get(url, headers=user_agent)
+    results = response.json()
 
     try:
-        response = requests.get(url, headers=headers)
+        return results.get('data').get('subscribers')
 
-        # Check if the response is successful
-        if response.status_code == 200:
-            data = response.json()
-            subscribers = data["data"]["subscribers"]
-            return subscribers
-        elif response.status_code == 404:
-            return 0  # Subreddit not found
-        else:
-            print(f"Error: {response.status_code}")
-            return 0
-    except requests.RequestException as e:
-        print(f"Error: {e}")
+    except Exception:
         return 0
