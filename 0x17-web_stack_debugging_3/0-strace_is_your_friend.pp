@@ -1,5 +1,3 @@
-# 0-strace_is_your_friend.pp
-
 # Declare the exec resource to fix the issue
 exec { 'fix-apache':
   command => '/usr/bin/apt-get update && /usr/bin/apt-get install -y php-module-name',
