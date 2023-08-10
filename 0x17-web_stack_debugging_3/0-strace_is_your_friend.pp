@@ -1,12 +1,10 @@
-# Declare the exec resource to fix the issue
-exec { 'fix-apache':
-  command => '/usr/bin/apt-get update && /usr/bin/apt-get install -y php-module-name',
-  onlyif  => '/usr/bin/dpkg --compare-versions $(/usr/bin/dpkg-query 
-  --showformat=\'${Version}\' --show php-module-name) ne desired_version',
-}
+# A puppet manuscript to replace a line in a file on a server
 
-# Notify the service to restart if the package is updated
-service { 'apache2':
-  ensure  => 'running',
-  require => Exec['fix-apache'],
+$file_to_edit = '/var/www/html/wp-settings.php'
+
+#replace line containing "phpp" with "php"
+
+exec { 'replace_line':
+  command => "sed -i 's/phpp/php/g' ${file_to_edit}",
+  path    => ['/bin','/usr/bin']
 }
