@@ -1,7 +1,7 @@
 server {
         listen 80 default_server;
 	listen [::]:80 default_server;
-	add_header X-Served-By "190329-web-01";
+	add_header X-Served-By "210747-web-01";
 	root /var/www/html;
 	index index.html index.htm;
 
